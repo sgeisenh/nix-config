@@ -1,0 +1,62 @@
+{ config, pkgs, ... }:
+
+{
+  programs.home-manager.enable = true;
+
+  imports = (import ./programs);
+
+  home = {
+    username = "sgeisenh";
+    homeDirectory = "/home/sgeisenh";
+    stateVersion = "22.05";
+    sessionVariables = {
+      EDITOR = "nvim";
+      VISUAL = "$EDITOR";
+    };
+
+    packages = with pkgs; [
+      ( python310.withPackages (ps: with ps; [ pip flake8 black ]) )
+      cmake
+      fd
+      luajit
+      mypy
+      neofetch
+      neovim
+      nixfmt
+      openssl
+      poetry
+      ripgrep
+      ripgrep-all
+      rustup
+      sqlite
+      tree
+      tree-sitter
+      wget
+    ];
+  };
+
+  programs.bat.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
+  programs.fzf.enable = true;
+
+  programs.gh = {
+    enable = true;
+    settings = {
+      editor = "nvim";
+      git_protocol = "ssh";
+    };
+  };
+
+  programs.htop.enable = true;
+
+  programs.jq.enable = true;
+
+  programs.kitty.enable = true;
+
+  xdb.configFile."nvim/init.lua".source = programs/neovim/init.lua;
+}
