@@ -18,6 +18,7 @@
       ( python310.withPackages (ps: with ps; [ pip flake8 black ]) )
       cmake
       fd
+      gcc
       luajit
       mypy
       neofetch
@@ -32,6 +33,7 @@
       tree
       tree-sitter
       wget
+      zig
     ];
   };
 
