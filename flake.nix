@@ -12,7 +12,7 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      homeConfigurations.jdoe = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.sgeisenh = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [

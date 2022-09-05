@@ -44,19 +44,11 @@
 
   programs.fzf.enable = true;
 
-  programs.gh = {
-    enable = true;
-    settings = {
-      editor = "nvim";
-      git_protocol = "ssh";
-    };
-  };
-
   programs.htop.enable = true;
 
   programs.jq.enable = true;
 
   programs.kitty.enable = true;
 
-  xdb.configFile."nvim/init.lua".source = programs/neovim/init.lua;
+  xdg.configFile."nvim/init.lua".source = programs/neovim/init.lua;
 }
