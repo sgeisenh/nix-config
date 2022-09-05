@@ -52,12 +52,8 @@
 
   programs.kitty.enable = true;
 
-  xdg.configFile."nvim/init.lua".source = programs/neovim/init.lua;
-  xdg.configFile."nvim/lua/plugins.lua".source = programs/neovim/lua/plugins.lua;
-  xdg.configFile."nvim/lua/mappings.lua".source = programs/neovim/lua/mappings.lua;
-  xdg.configFile."nvim/lua/options.lua".source = programs/neovim/lua/options.lua;
-  xdg.configFile."nvim/lua/config/cmp.lua".source = programs/neovim/lua/config/cmp.lua;
-  xdg.configFile."nvim/lua/config/lsp.lua".source = programs/neovim/lua/config/lsp.lua;
-  xdg.configFile."nvim/lua/config/rust-tools.lua".source = programs/neovim/lua/config/rust-tools.lua;
-  xdg.configFile."nvim/lua/config/treesitter.lua".source = programs/neovim/lua/config/treesitter.lua;
+  xdg.configFile."nvim" = {
+    source = programs/neovim;
+    recursive = true;
+  };
 }
