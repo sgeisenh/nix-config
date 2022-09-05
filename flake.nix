@@ -5,7 +5,7 @@
     home-manager = {
       url = "github:nixos-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
-    }:
+    };
   };
   outputs = { nixpkgs, home-manager, ... }:
     let
