@@ -19,6 +19,7 @@
       cmake
       fd
       gcc
+      google-chrome
       luajit
       mypy
       neofetch
