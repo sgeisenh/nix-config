@@ -29,6 +29,7 @@
       poetry
       ripgrep
       ripgrep-all
+      rust-analyzer
       rustup
       sqlite
       tree
