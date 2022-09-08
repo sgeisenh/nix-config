@@ -20,6 +20,7 @@
       fd
       gcc
       google-chrome
+      inetutils
       luajit
       mypy
       neofetch
