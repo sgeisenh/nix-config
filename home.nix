@@ -21,6 +21,7 @@
       gcc
       google-chrome
       inetutils
+      llvm
       luajit
       mypy
       neofetch
@@ -33,6 +34,7 @@
       rust-analyzer
       rustup
       sqlite
+      sumneko-lua-language-server
       tree
       tree-sitter
       wget
