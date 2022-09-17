@@ -6,6 +6,7 @@ in
 {
   programs.git = {
     enable = true;
-    extraConfig = gitConfig;
+    userName = "Samuel Eisenhandler";
+    userEmail = "sgeisenhandler@gmail.com";
   };
 }
