@@ -15,7 +15,7 @@
     };
 
     packages = with pkgs; [
-      ( python310.withPackages (ps: with ps; [ pip flake8 black ]) )
+      ( python310.withPackages (ps: with ps; [ pip flake8 black pyright ]) )
       clang
       clang-tools
       cmake
