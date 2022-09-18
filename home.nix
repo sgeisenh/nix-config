@@ -16,6 +16,7 @@
 
     packages = with pkgs; [
       ( python310.withPackages (ps: with ps; [ pip flake8 black ]) )
+      clang
       cmake
       fd
       google-chrome
