@@ -15,19 +15,17 @@
     };
 
     packages = with pkgs; [
-      ( python310.withPackages (ps: with ps; [ pip flake8 black pyright ]) )
-      clang
-      clang-tools
+      ( python310.withPackages (ps: with ps; [ pip flake8 black ]) )
       cmake
       fd
       google-chrome
       inetutils
-      llvm
       luajit
       mypy
       neofetch
       neovim
       nixfmt
+      nodePackages.pyright
       openssl
       poetry
       ripgrep
