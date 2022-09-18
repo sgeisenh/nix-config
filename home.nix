@@ -27,6 +27,7 @@
       nixfmt
       nodePackages.pyright
       openssl
+      pkg-config
       poetry
       ripgrep
       ripgrep-all
