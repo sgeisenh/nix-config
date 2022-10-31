@@ -20,6 +20,7 @@
       cmake
       docker
       fd
+      flyctl
       google-chrome
       inetutils
       luajit
