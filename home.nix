@@ -58,6 +58,11 @@
 
   programs.kitty.enable = true;
 
+  services.picom = {
+    enable = true;
+    backend = "glx";
+  };
+
   xdg.configFile."nvim" = {
     source = programs/neovim;
     recursive = true;
