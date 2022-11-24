@@ -32,6 +32,7 @@
       openssl
       pkg-config
       poetry
+      qemu
       ripgrep
       ripgrep-all
       rust-analyzer
