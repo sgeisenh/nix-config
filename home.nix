@@ -22,7 +22,9 @@
       fd
       flyctl
       google-chrome
+      httpie
       inetutils
+      lsof
       luajit
       mypy
       neofetch
