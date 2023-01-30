@@ -48,11 +48,13 @@
     ];
   };
 
+  programs.bash.enable = true;
   programs.bat.enable = true;
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
+    enableBashIntegration = true;
   };
 
   programs.fzf.enable = true;
@@ -62,11 +64,6 @@
   programs.jq.enable = true;
 
   programs.kitty.enable = true;
-
-  services.picom = {
-    enable = true;
-    backend = "glx";
-  };
 
   xdg.configFile."nvim" = {
     source = programs/neovim;
