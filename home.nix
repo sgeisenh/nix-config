@@ -15,7 +15,7 @@
     };
 
     packages = with pkgs; [
-      ( python310.withPackages (ps: with ps; [ pip flake8 black ]) )
+      ( python310.withPackages (ps: with ps; [ pip flake8 black snakeviz neovim ]) )
       clang
       cmake
       docker
@@ -24,12 +24,14 @@
       google-chrome
       httpie
       inetutils
+      kcachegrind
       lsof
       luajit
       mypy
       neofetch
       neovim
       nixfmt
+      nodePackages.prettier
       nodePackages.pyright
       openssl
       pkg-config
@@ -43,6 +45,7 @@
       sumneko-lua-language-server
       tree
       tree-sitter
+      valgrind
       wget
       zig
     ];
@@ -62,8 +65,6 @@
   programs.htop.enable = true;
 
   programs.jq.enable = true;
-
-  programs.kitty.enable = true;
 
   xdg.configFile."nvim" = {
     source = programs/neovim;
