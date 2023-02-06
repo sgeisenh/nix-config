@@ -18,7 +18,6 @@
       ( python310.withPackages (ps: with ps; [ pip flake8 black snakeviz neovim ]) )
       clang
       cmake
-      docker
       fd
       flyctl
       httpie
