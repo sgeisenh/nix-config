@@ -21,7 +21,6 @@
       docker
       fd
       flyctl
-      google-chrome
       httpie
       inetutils
       kcachegrind
@@ -31,6 +30,7 @@
       neofetch
       neovim
       nixfmt
+      nodejs
       nodePackages.prettier
       nodePackages.pyright
       openssl
@@ -45,6 +45,7 @@
       sumneko-lua-language-server
       tree
       tree-sitter
+      vagrant
       valgrind
       wget
       zig
