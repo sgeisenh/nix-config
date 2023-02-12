@@ -41,17 +41,6 @@ packer.startup(function(use)
   use({ "neovim/nvim-lspconfig", config = get_config("lsp") })
 
   use({
-    "nvim-treesitter/nvim-treesitter",
-    config = get_config("treesitter"),
-    run = ":TSUpdate",
-  })
-
-  use({
-    "nvim-treesitter/playground",
-    requires = { { "nvim-treesitter/nvim-treesitter" } },
-  })
-
-  use({
     "simrat39/rust-tools.nvim",
     config = get_config("rust-tools"),
   })

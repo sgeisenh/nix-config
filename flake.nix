@@ -8,19 +8,17 @@
     };
   };
   outputs = { nixpkgs, home-manager, ... }:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-    in {
-      homeConfigurations.sgeisenh = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+    let mac-pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        x86-pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        configFromPkgs = pkgs: home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
 
-        modules = [
-          ./home.nix
-        ];
-      };
+	    modules = [
+	        ./home.nix
+	    ];
+        };
+    in {
+      homeConfigurations.sgeisenh-mac = configFromPkgs mac-pkgs;
+      homeConfigurations.sgeisenh-x86 = configFromPkgs x86-pkgs;
     };
 }

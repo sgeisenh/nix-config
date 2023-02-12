@@ -7,7 +7,7 @@
 
   home = {
     username = "sgeisenh";
-    homeDirectory = "/home/sgeisenh";
+    homeDirectory = "/Users/sgeisenh";
     stateVersion = "22.05";
     sessionVariables = {
       EDITOR = "nvim";
@@ -15,49 +15,52 @@
     };
 
     packages = with pkgs; [
-      ( python310.withPackages (ps: with ps; [ pip flake8 black snakeviz neovim ]) )
-      clang
-      cmake
+      alacritty
+      exa
       fd
       flyctl
       httpie
       inetutils
-      kcachegrind
       lsof
-      luajit
-      mypy
       neofetch
       neovim
       nixfmt
       nodejs
       nodePackages.prettier
       nodePackages.pyright
-      openssl
-      pkg-config
       poetry
       qemu
+      rectangle
       ripgrep
       ripgrep-all
       rust-analyzer
       rustup
       sqlite
-      sumneko-lua-language-server
       tree
       tree-sitter
-      vagrant
-      valgrind
       wget
-      zig
     ];
   };
 
-  programs.bash.enable = true;
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    dotDir = ".config/zsh";
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    shellAliases = {
+      ls = "exa";
+      l = "exa -l";
+      la = "exa -la";
+      ip = "ip --color=auto";
+    };
+  };
   programs.bat.enable = true;
 
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
-    enableBashIntegration = true;
+    enableZshIntegration = true;
   };
 
   programs.fzf.enable = true;
