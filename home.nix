@@ -18,7 +18,6 @@
       inetutils
       lsof
       neofetch
-      neovim
       nixfmt
       nodejs
       nodePackages.prettier
@@ -72,9 +71,4 @@
   programs.htop.enable = true;
 
   programs.jq.enable = true;
-
-  xdg.configFile."nvim" = {
-    source = programs/neovim;
-    recursive = true;
-  };
 }

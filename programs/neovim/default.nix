@@ -1,0 +1,40 @@
+{ config, pkgs, lib, ... }:
+{
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
+    package = pkgs.neovim-nightly;
+
+    extraLuaConfig = builtins.concatStringsSep "\n" [
+      (lib.strings.fileContents ./mappings.lua)
+      (lib.strings.fileContents ./options.lua)
+      (lib.strings.fileContents ./cmp.lua)
+      (lib.strings.fileContents ./lsp.lua)
+      (lib.strings.fileContents ./rust-tools.lua)
+    ];
+
+    extraPackages = with pkgs; [
+      tree-sitter
+
+      nodePackages.typescript
+      nodePackages.typescript-language-server
+      nodePackages.pyright
+      rust-analyzer
+    ];
+
+    plugins = with pkgs.vimPlugins; [
+      plenary-nvim
+      telescope-nvim
+      rust-tools-nvim
+      nvim-lspconfig
+      gruvbox-nvim
+      nvim-cmp
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-cmdline
+      nvim-treesitter.withAllGrammars
+    ];
+  };
+}
