@@ -39,7 +39,6 @@
       tree
       tree-sitter
       wget
-      zulip
     ];
   };
 
