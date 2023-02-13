@@ -17,7 +17,7 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh = {
     enable = true;
-    promptInit = "autoload -U promptinit && promptinit && prompt adam1";
+    promptInit = "autoload -U promptinit && promptinit && prompt redhat";
   };
 
   fonts = {
