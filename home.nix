@@ -11,7 +11,6 @@
     };
 
     packages = with pkgs; [
-      alacritty
       exa
       fd
       flyctl
@@ -29,6 +28,7 @@
       rectangle
       ripgrep
       ripgrep-all
+      rnix-lsp
       rust-analyzer
       rustup
       sqlite
@@ -52,6 +52,14 @@
     };
   };
   programs.bat.enable = true;
+
+  programs.alacritty = {
+    enable = true;
+    settings.font = {
+      family = "JetBrainsMono Nerd Font";
+      size = 14;
+    };
+  };
 
   programs.direnv = {
     enable = true;

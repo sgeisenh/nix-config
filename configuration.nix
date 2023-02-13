@@ -3,7 +3,6 @@
 {
   environment.systemPackages =
     with pkgs; [ 
-      alacritty
       rectangle
     ];
 
@@ -16,7 +15,10 @@
   nix.package = pkgs.nix;
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    promptInit = "autoload -U promptinit && promptinit && prompt adam1";
+  };
 
   fonts = {
     fontDir.enable = true;
