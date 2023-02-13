@@ -5,11 +5,6 @@
 
   home = {
     stateVersion = "22.05";
-    sessionVariables = {
-      EDITOR = "nvim";
-      VISUAL = "$EDITOR";
-    };
-
     packages = with pkgs; [
       exa
       fd
