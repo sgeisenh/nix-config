@@ -12,4 +12,4 @@ echo "System with arch $arch not yet supported..."
 exit 1
 fi
 
-home-manager switch --flake ".#sgeisenh-$system"
+home-manager switch --flake "github:sgeisenh/nix-config#sgeisenh-$system"
