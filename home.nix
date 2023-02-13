@@ -1,13 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  programs.home-manager.enable = true;
-
   imports = (import ./programs);
 
   home = {
-    username = "sgeisenh";
-    homeDirectory = "/Users/sgeisenh";
     stateVersion = "22.05";
     sessionVariables = {
       EDITOR = "nvim";
