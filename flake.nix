@@ -19,8 +19,24 @@
       samuels-mbp = darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
-          ./configuration.nix
+          ./darwin-configuration.nix
           home-manager.darwinModules.home-manager
+          {
+            nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+            nixpkgs.config.allowUnfree = true;
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.sgeisenh = import ./home.nix;
+          }
+        ];
+      };
+    };
+    nixosConfigurations = {
+      nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./nixos-configuration.nix
+          home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
             nixpkgs.config.allowUnfree = true;

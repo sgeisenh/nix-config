@@ -5,7 +5,10 @@
 
   home = {
     stateVersion = "22.05";
-    packages = with pkgs; [
+    packages = 
+      with pkgs; let darwinPkgs = if pkgs.system == "aarch64-darwin" then [rectangle] else []; 
+      x86Pkgs = []; in
+    [
       exa
       fd
       flyctl
@@ -19,7 +22,6 @@
       nodePackages.pyright
       poetry
       qemu
-      rectangle
       ripgrep
       ripgrep-all
       rnix-lsp
@@ -30,7 +32,7 @@
       tree-sitter
       wget
       zoom-us
-    ];
+    ] ++ darwinPkgs ++ x86Pkgs;
   };
 
   programs.zsh = {
