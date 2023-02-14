@@ -13,6 +13,7 @@
       (lib.strings.fileContents ./cmp.lua)
       (lib.strings.fileContents ./lsp.lua)
       (lib.strings.fileContents ./rust-tools.lua)
+      (lib.strings.fileContents ./null-ls.lua)
     ];
 
     extraPackages = with pkgs; [
@@ -35,6 +36,7 @@
       cmp-buffer
       cmp-cmdline
       nvim-treesitter.withAllGrammars
+      null-ls-nvim
     ];
   };
 }

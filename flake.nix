@@ -23,6 +23,7 @@
           home-manager.darwinModules.home-manager
           {
             nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+            nixpkgs.config.allowUnfree = true;
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.sgeisenh = import ./home.nix;

@@ -29,6 +29,7 @@
       tree
       tree-sitter
       wget
+      zoom-us
     ];
   };
 
