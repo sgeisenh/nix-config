@@ -5,6 +5,8 @@
 { config, pkgs, ... }:
 
 {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   imports =
     [
       # Include the results of the hardware scan.
@@ -88,6 +90,7 @@
     packages = with pkgs; [
       google-chrome
       kate
+      vulkan-tools
     ];
   };
 
@@ -108,6 +111,11 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
   ];
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
