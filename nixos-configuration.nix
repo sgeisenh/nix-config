@@ -90,7 +90,6 @@
     packages = with pkgs; [
       google-chrome
       kate
-      vulkan-tools
     ];
   };
 
