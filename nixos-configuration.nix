@@ -13,8 +13,6 @@
       ./hardware-configuration.nix
     ];
 
-  users.defaultUserShell = pkgs.zsh;
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -93,6 +91,7 @@
       google-chrome
       kate
     ];
+    shell = pkgs.zsh;
   };
 
   # Enable automatic login for the user.
@@ -106,6 +105,9 @@
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -117,6 +119,7 @@
     enable = true;
     remotePlay.openFirewall = true;
   };
+  programs.zsh.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
