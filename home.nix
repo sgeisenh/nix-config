@@ -3,36 +3,40 @@
 {
   imports = (import ./programs);
 
+  nixpkgs.config.allowUnfree = true;
+
   home = {
     stateVersion = "22.05";
-    packages = 
-      with pkgs; let darwinPkgs = if pkgs.system == "aarch64-darwin" then [rectangle] else []; 
-      x86Pkgs = []; in
-    [
-      exa
-      fd
-      flyctl
-      httpie
-      inetutils
-      lsof
-      neofetch
-      nixfmt
-      nodejs
-      nodePackages.prettier
-      nodePackages.pyright
-      poetry
-      qemu
-      ripgrep
-      ripgrep-all
-      rnix-lsp
-      rust-analyzer
-      rustup
-      sqlite
-      tree
-      tree-sitter
-      wget
-      zoom-us
-    ] ++ darwinPkgs ++ x86Pkgs;
+    packages =
+      with pkgs; let
+        darwinPkgs = if pkgs.system == "aarch64-darwin" then [ rectangle ] else [ ];
+        x86Pkgs = if pkgs.system == "x86_64-linux" then [ zulip ] else [ ];
+      in
+      [
+        exa
+        fd
+        flyctl
+        httpie
+        inetutils
+        lsof
+        neofetch
+        nixfmt
+        nodejs
+        nodePackages.prettier
+        nodePackages.pyright
+        poetry
+        qemu
+        ripgrep
+        ripgrep-all
+        rnix-lsp
+        rust-analyzer
+        rustup
+        sqlite
+        tree
+        tree-sitter
+        wget
+        zoom-us
+      ] ++ darwinPkgs ++ x86Pkgs;
   };
 
   programs.zsh = {

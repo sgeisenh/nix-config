@@ -13,6 +13,8 @@
       ./hardware-configuration.nix
     ];
 
+  users.defaultUserShell = pkgs.zsh;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
