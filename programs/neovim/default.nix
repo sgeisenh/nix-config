@@ -37,6 +37,9 @@
       cmp-cmdline
       nvim-treesitter.withAllGrammars
       null-ls-nvim
+      copilot-vim
+      luasnip
+      cmp_luasnip
     ];
   };
 }
