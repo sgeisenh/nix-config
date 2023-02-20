@@ -22,7 +22,6 @@
       nodePackages.typescript
       nodePackages.typescript-language-server
       nodePackages.pyright
-      rust-analyzer
     ];
 
     plugins = with pkgs.vimPlugins; [
