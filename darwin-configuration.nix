@@ -2,8 +2,9 @@
 
 {
   environment.systemPackages =
-    with pkgs; [ 
+    with pkgs; [
       rectangle
+      libxml2
     ];
 
   nix.extraOptions = ''
