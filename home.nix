@@ -13,6 +13,7 @@
         x86Pkgs = if pkgs.system == "x86_64-linux" then [ zulip ] else [ ];
       in
       [
+        cmake
         exa
         fd
         flyctl
@@ -20,6 +21,7 @@
         inetutils
         lsof
         neofetch
+        ninja
         nixfmt
         nodejs
         nodePackages.prettier
