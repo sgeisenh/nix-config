@@ -17,6 +17,7 @@
         exa
         fd
         flyctl
+        gcc
         httpie
         inetutils
         lsof

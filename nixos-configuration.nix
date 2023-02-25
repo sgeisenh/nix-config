@@ -94,6 +94,28 @@
     shell = pkgs.zsh;
   };
 
+  systemd.services.productivity = {
+    serviceConfig = {
+      Type = "oneshot";
+      User = "sgeisenh";
+    };
+    path = with pkgs; [ bash openssh ];
+
+    script = ''
+      bash /home/sgeisenh/productivity.sh
+    '';
+  };
+
+  systemd.timers.productivity = {
+    wantedBy = [ "timers.target" ];
+    partOf = [ "productivity.service" ];
+    timerConfig = {
+      # Run every 10 minutes.
+      OnCalendar = "*:0/10";
+      Unit = "productivity.service";
+    };
+  };
+
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "sgeisenh";
