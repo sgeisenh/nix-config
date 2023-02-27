@@ -54,6 +54,9 @@
       la = "exa -la";
       ip = "ip --color=auto";
     };
+    initExtra = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
+    '';
   };
   programs.bat.enable = true;
 
@@ -71,7 +74,10 @@
     enableZshIntegration = true;
   };
 
-  programs.fzf.enable = true;
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.htop.enable = true;
 

@@ -13,8 +13,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-nvim_lsp.denols.setup {
+lspconfig.denols.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  root_dir = nvim_lsp.util.root_pattern("deno.json", "deno.jsonc"),
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 }
