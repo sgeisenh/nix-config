@@ -82,4 +82,6 @@
   programs.htop.enable = true;
 
   programs.jq.enable = true;
+
+  programs.home-manager.enable = true;
 }
