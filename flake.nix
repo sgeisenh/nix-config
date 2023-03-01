@@ -14,38 +14,36 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ nixpkgs, darwin, home-manager, ... }: {
-    darwinConfigurations = {
-      samuels-mbp = darwin.lib.darwinSystem {
-        system = "aarch64-darwin";
-        modules = [
-          ./darwin-configuration.nix
-          home-manager.darwinModules.home-manager
-          {
-            nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
-            nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.sgeisenh = import ./home.nix;
-          }
-        ];
+  outputs = inputs@{ nixpkgs, darwin, home-manager, ... }:
+    let
+      homeManagerConfig = {
+        nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
+        nixpkgs.config.allowUnfree = true;
+        home-manager.useGlobalPkgs = true;
+        home-manager.useUserPackages = true;
+        home-manager.users.sgeisenh = import ./home.nix;
+      };
+    in
+    {
+      darwinConfigurations = {
+        samuels-mbp = darwin.lib.darwinSystem {
+          system = "aarch64-darwin";
+          modules = [
+            ./darwin-configuration.nix
+            home-manager.darwinModules.home-manager
+            homeManagerConfig
+          ];
+        };
+      };
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./nixos-configuration.nix
+            home-manager.nixosModules.home-manager
+            homeManagerConfig
+          ];
+        };
       };
     };
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./nixos-configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
-            nixpkgs.config.allowUnfree = true;
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.sgeisenh = import ./home.nix;
-          }
-        ];
-      };
-    };
-  };
 }
