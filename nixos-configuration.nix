@@ -7,6 +7,8 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  system.autoUpgrade.enable = true;
+
   imports =
     [
       # Include the results of the hardware scan.
