@@ -42,8 +42,6 @@
       ] ++ darwinPkgs ++ x86Pkgs;
   };
 
-  programs.home-manager.enable = true;
-
   programs.zsh = {
     enable = true;
     autocd = true;
