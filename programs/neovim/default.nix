@@ -34,7 +34,7 @@
       cmp-nvim-lsp
       cmp-buffer
       cmp-cmdline
-      nvim-treesitter.withAllGrammars
+      nvim-treesitter
       null-ls-nvim
       copilot-vim
       luasnip

@@ -3,52 +3,11 @@
 {
   imports = (import ./programs);
 
-  nixpkgs.config.allowUnfree = true;
-
   home = {
     stateVersion = "22.05";
-    packages =
-      with pkgs; let
-        darwinPkgs = if pkgs.system == "aarch64-darwin" then [ rectangle ] else [ ];
-        x86Pkgs = if pkgs.system == "x86_64-linux" then [ zulip ] else [ ];
-      in
-      [
-        cmake
-        exa
-        fd
-        flyctl
-        gcc
-        httpie
-        inetutils
-        lsof
-        neofetch
-        ninja
-        nixfmt
-        nodejs
-        nodePackages.prettier
-        nodePackages.pyright
-        poetry
-        qemu
-        ripgrep
-        ripgrep-all
-        rnix-lsp
-        rust-analyzer
-        rustup
-        sqlite
-        tree
-        tree-sitter
-        vscode
-        wget
-        zoom-us
-      ] ++ darwinPkgs ++ x86Pkgs;
+    username = "sgeisenh";
+    homeDirectory = "/home/sgeisenh";
   };
-
-  xdg.configFile."autostart/ssh-add.desktop".text = ''
-    [Desktop Entry]
-    Exec=ssh-add -q
-    Name=ssh-add
-    Type=Application
-  '';
 
   programs.zsh = {
     enable = true;
@@ -66,29 +25,6 @@
       export PATH="$HOME/.cargo/bin:$PATH"
     '';
   };
-  programs.bat.enable = true;
 
-  programs.alacritty = {
-    enable = true;
-    settings.font = {
-      family = "JetBrainsMono Nerd Font";
-      size = 14;
-    };
-  };
-
-  programs.direnv = {
-    enable = true;
-    nix-direnv.enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.htop.enable = true;
-
-  programs.jq.enable = true;
-
+  programs.home-manager.enable = true;
 }
