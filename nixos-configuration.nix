@@ -7,8 +7,6 @@
 {
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  system.autoUpgrade.enable = true;
-
   imports =
     [
       # Include the results of the hardware scan.
@@ -88,7 +86,7 @@
   users.users.sgeisenh = {
     isNormalUser = true;
     description = "Samuel Eisenhandler";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       google-chrome
       kate
@@ -126,6 +124,11 @@
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
+
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host.enableExtensionPack = true;
+
+  virtualisation.docker.enable = true;
 
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
 

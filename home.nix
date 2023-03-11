@@ -37,10 +37,18 @@
         sqlite
         tree
         tree-sitter
+        vscode
         wget
         zoom-us
       ] ++ darwinPkgs ++ x86Pkgs;
   };
+
+  xdg.configFile."autostart/ssh-add.desktop".text = ''
+    [Desktop Entry]
+    Exec=ssh-add -q
+    Name=ssh-add
+    Type=Application
+  '';
 
   programs.zsh = {
     enable = true;
