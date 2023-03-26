@@ -27,6 +27,7 @@
     plugins = with pkgs.vimPlugins; [
       plenary-nvim
       telescope-nvim
+      telescope-fzf-native-nvim
       rust-tools-nvim
       nvim-lspconfig
       gruvbox-nvim

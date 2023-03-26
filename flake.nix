@@ -11,14 +11,7 @@
   };
   outputs = inputs@{ nixpkgs, home-manager, ... }:
     let
-      homeManagerConfig = {
-        nixpkgs.overlays = [ inputs.neovim-nightly-overlay.overlay ];
-        nixpkgs.config.allowUnfree = true;
-        home-manager.useGlobalPkgs = true;
-        home-manager.useUserPackages = true;
-        home-manager.users.sgeisenh = import ./home.nix;
-      };
-      system = "x86_64-linux";
+      system = "aarch64-darwin";
       overlays = [ inputs.neovim-nightly-overlay.overlay ];
       pkgs = import nixpkgs {
         inherit system overlays;
